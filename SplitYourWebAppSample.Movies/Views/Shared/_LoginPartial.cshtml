@@ -1,0 +1,19 @@
+﻿@if (Request.IsAuthenticated)
+{
+    <form id="logoutForm" method="post" action="http://localhost:48000/account/logoff" class="navbar-right">                
+
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="#">Hello @User.Identity.Name</a>
+            </li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+        </ul>
+    </form>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="http://localhost:48000/account/register" id="registerLink">Register</a></li>
+        <li><a href="http://localhost:48000/account/login" id="loginLink">Log in</a></li>
+    </ul>
+}

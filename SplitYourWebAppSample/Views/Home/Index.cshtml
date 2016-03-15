@@ -1,0 +1,55 @@
+﻿<div class="jumbotron">
+    <h1>Split your web app into smaller apps sample</h1>
+    <p class="lead">This is an example of a what appears to be a single app but in reality are three, this one, the "music store" and the "movie store" </p>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <p class="bg-info">If you are redirected to the login page when you navigate to the Music app and Movie apps, make sure you have the same machine key in all web apps.</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-12">
+                <h4>This content is populated by an ajax call to the music store app:</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12" id="latestMusicNewsContainer">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-12">
+                <h4>This content is populated by an ajax call to the movies store app:</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12" id="latestMovieNewsContainer">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section scripts{
+    
+    <script>
+        $(function () {
+            $.get("http://localhost:48000/musicstore/music/latestnews").done(function (news) {
+                $('#latestMusicNewsContainer').html(news);
+            }).fail(function () {
+                toastr.error("Could not get the latest music news. Are you running the musicstore web app?");
+            });
+
+            $.get("http://localhost:48000/moviestore/movies/latestnews").done(function (news) {
+                $('#latestMovieNewsContainer').html(news);
+            }).fail(function () {
+                toastr.error("Could not get the latest movie news. Are you running the moviestore web app?");
+            });
+        });
+    </script>
+}

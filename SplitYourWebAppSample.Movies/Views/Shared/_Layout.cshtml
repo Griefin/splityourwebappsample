@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Split your web app example</title>
+    <link href="http://localhost:48000/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="http://localhost:48000/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="http://localhost:48000/Scripts/modernizr-2.6.2.js"></script>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="http://localhost:48000" class="navbar-brand">Split your web app example</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="http://localhost:48000">Home</a></li>
+                    <li><a href="http://localhost:48000/musicstore">Buy Music</a></li>
+                    <li><a href="http://localhost:48000/moviestore">Buy Movies</a></li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    <script src="http://localhost:48000/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="http://localhost:48000/Scripts/bootstrap.min.js"></script>
+</body>
+</html>
